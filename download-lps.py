@@ -1,3 +1,9 @@
+""""
+This code is meant to download all the images from any lpsmerch.com subpages and assign them their name and number.
+To adjust the webpage its working on, adjust 'url' in the line ~14.
+To adjust the directory where the images are stored, adjust 'image_directory' in the line ~18.
+"""
+
 import requests
 import bs4
 import re
