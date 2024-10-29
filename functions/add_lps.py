@@ -1,13 +1,21 @@
-import os
-import shutil
-import re
-
-
-lps_all = r'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_all'
-lps_have = r'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_have'
-
 def add():
-    ps_input = input('Which numbers? (e.g., 2, 3, 4)\n').lower()
+    import os
+    import shutil
+    import re
+
+    while True:
+        ps_gen_input = input('From what gen is the petshop(s) you want to add?\n').lower()
+
+        # Check if gen input is valid
+        if ps_gen_input in ['1', '2', '3', '4', '5', '6', '7']:
+            lps_all = rf'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_all\gen_{ps_gen_input}'
+            lps_have = rf'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_have\gen_{ps_gen_input}'
+            break
+        else:
+            print('Please provide a valid gen number.')
+
+    # Check for the petshops
+    ps_input = input('Which number(s)? (e.g., 2, 3, 4)\n').lower()
     ps_list = [num.strip() for num in ps_input.split(',')]
 
     for ps in ps_list:

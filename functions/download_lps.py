@@ -1,11 +1,10 @@
-import requests
-import bs4
-import re
-import os
-
-
 def download():
-# Gets html and makes it human-readable. Filters the div data-item from the html (The square that stores the images and the petshop info). Establishes a directory to store the images and a set to avoid downloading duplicates. 
+    import requests
+    import bs4
+    import re
+    import os
+
+    # Gets html and makes it human-readable. Filters the div data-item from the html (The square that stores the images and the petshop info). Establishes a directory to store the images and a set to avoid downloading duplicates. 
     ps_download = input('Which gen would you like to download?\n').lower()
     ps_download_list = [num.strip() for num in ps_download.split(',')]
     for n in ps_download_list:
