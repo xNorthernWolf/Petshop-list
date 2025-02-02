@@ -8,8 +8,10 @@ def remove():
 
         # Check if gen input is valid
         if ps_gen_input in ['1', '2', '3', '4', '5', '6', '7']:
-            lps_all = rf'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_all\gen_{ps_gen_input}'
-            lps_have = rf'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_have\gen_{ps_gen_input}'
+            lps_all = rf'/Users/dante/Desktop/Petshop-list/lps_all/gen_{ps_gen_input}'
+            lps_have = rf'/Users/dante/Desktop/Petshop-list/lps_have/gen_{ps_gen_input}'
+            if ps_gen_input == '6':
+                ps_wave_input = input('Which wave is the petshop you want to remove?\n').lower()
             break
         else:
             print('Please provide a valid gen number.')
@@ -20,6 +22,10 @@ def remove():
 
     for ps in ps_list:
         matching_pattern = re.compile(r'^\(#' + re.escape(ps) + r'\)', re.IGNORECASE)
+        if ps_gen_input == '6':
+            matching_pattern = re.compile(r'^\(#' + re.escape(ps_wave_input) + '-' + re.escape(ps) + r'\)', re.IGNORECASE)
+        elif ps_gen_input == '7':
+            matching_pattern = re.compile(r'\(#.*#' + re.escape(ps) + r'\b.*\)', re.IGNORECASE)
         positive_match = False
         for file in os.listdir(lps_have):
             file_path = os.path.join(lps_have, file)

@@ -15,7 +15,7 @@ def download():
             filtered_soup = soup.find_all('div', class_='data-item-long')
         else:
             filtered_soup = soup.find_all('div', class_='data-item')
-        image_directory = rf'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_all\gen_{n}'
+        image_directory = rf'/Users/dante/Desktop/Petshop-list-main/lps_all/gen_{n}'
         downloaded_items = set()
 
 
