@@ -1,7 +1,4 @@
-from re import L
 from functions import download_lps, add_lps, remove_lps, list_lps
-import sys
-sys.dont_write_bytecode = True
 
 
 while True:

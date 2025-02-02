@@ -1,8 +1,10 @@
 def list():
     import os
     from natsort import natsorted
+    from config import lps_path
 
-    lps_have = r'C:\Users\xNort\Desktop\Cosas varias\DevOps\Python\Petshop-list\lps_have'
+
+    lps_have = lps_path + rf'/lps_have'
     dir_names = os.listdir(lps_have)
 
     for directory in dir_names:

@@ -3,10 +3,12 @@ def download():
     import bs4
     import re
     import os
+    from config import lps_path
 
-    # Gets html and makes it human-readable. Filters the div data-item from the html (The square that stores the images and the petshop info). Establishes a directory to store the images and a set to avoid downloading duplicates. 
-    ps_download = input('Which gen would you like to download?\n').lower()
-    ps_download_list = [num.strip() for num in ps_download.split(',')]
+
+    # Gets html and makes it human-readable. Filters the div data-item from the html (The square that stores the images and the petshop info). Establishes a directory to store the images and a set to avoid downloading duplicates.
+    ps_gen_input = input('Which gen would you like to download?\n').lower()
+    ps_download_list = [num.strip() for num in ps_gen_input.split(',')]
     for n in ps_download_list:
         url = rf'https://lpsmerch.com/g{n}/all/'
         request = requests.get(url)
@@ -15,7 +17,7 @@ def download():
             filtered_soup = soup.find_all('div', class_='data-item-long')
         else:
             filtered_soup = soup.find_all('div', class_='data-item')
-        image_directory = rf'/Users/dante/Desktop/Petshop-list-main/lps_all/gen_{n}'
+        image_directory = lps_path + rf'/lps_all/gen_{ps_gen_input}'
         downloaded_items = set()
 
 

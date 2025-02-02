@@ -2,14 +2,16 @@ def add():
     import os
     import shutil
     import re
+    from config import lps_path
+
 
     while True:
         ps_gen_input = input('From what gen is the petshop(s) you want to add?\n').lower()
 
         # Check if gen input is valid
         if ps_gen_input in ['1', '2', '3', '4', '5', '6', '7']:
-            lps_all = rf'/Users/dante/Desktop/Petshop-list/lps_all/gen_{ps_gen_input}'
-            lps_have = rf'/Users/dante/Desktop/Petshop-list/lps_have/gen_{ps_gen_input}'
+            lps_all = lps_path + rf'/lps_all/gen_{ps_gen_input}'
+            lps_have = lps_path + rf'/lps_have/gen_{ps_gen_input}'
             if ps_gen_input == '6':
                 ps_wave_input = input('Which wave is the petshop you want to add?\n').lower()
             break
